@@ -1,0 +1,2 @@
+#!/bin/bash
+ps -eo pid,fname,time,ni,stat,vsize,wchan,pcpu | sort -g -k 8

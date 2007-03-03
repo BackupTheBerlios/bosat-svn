@@ -1,0 +1,2 @@
+#!/bin/bash
+ps -eo pid,fname,time,stat,vsize,pcpu,ni | sort -r -g -k 7

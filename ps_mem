@@ -1,0 +1,2 @@
+#!/bin/bash
+ps -eo pid,fname,wchan,size,pmem | sort -g -k 5

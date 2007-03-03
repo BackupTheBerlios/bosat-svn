@@ -1,0 +1,73 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use IO::Socket::INET;
+
+
+my $host='127.0.0.1';
+my $dport='80';
+
+my $send_message='GET';
+my $expect_message='';
+
+my $timeout=30;
+my $interval=20;
+
+my $daemon_path='/usr/local/apache/bin/httpd';
+my $exec_name='httpd';
+my $wlog="/var/log/wrapper_"."$host"."_"."$dport";
+
+my $EOL = "\015\012";
+
+open WLOG,">$wlog" or die "unable to open log file : $! \n";
+select WLOG; 
+$|=1;
+select STDOUT;
+
+
+while (1) {
+my $server=IO::Socket::INET->new (
+			        Proto => 'tcp',
+				PeerAddr => $host,
+				PeerPort => $dport,
+                                Timeout => $timeout ,   
+			  ) or &warning ("Connection Failed \"$host\:$dport\" :$! .\n");
+our $iftimeout=0;
+if ($server) {
+    alarm $timeout;
+local $SIG{ALRM} = sub { 
+    &warning ("TIMEOUT on \"$host:$dport\".\n");
+    $server->shutdown(2);
+$iftimeout=1;
+
+};
+
+print $server "$send_message".$EOL;
+my @message = <$server>;
+
+close $server;
+
+my $matched;
+
+foreach (@message) {
+
+    if ($_ =~ /$expect_message/g) {
+    alarm 0;
+} else {
+    &warning ("UNMATCHED on \"$host\" , sending \"$send_message\" and expect \"$expect_message\" but got \"@message\" .\n");
+
+}
+}}
+
+
+sub warning {
+    print WLOG ("!!! : ",scalar(localtime)," : $_[0]\n");
+    system "killall -w httpd";
+    system "$daemon_path";
+    print WLOG ("!!! : ",scalar(localtime)," : Reloaded\n");
+    return (0);
+}
+sleep $interval;
+
+}

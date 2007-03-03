@@ -1,0 +1,19 @@
+Bosat , Bunch of system administration tools 
+
+clean_radacct_eol.pl : Remove freeradius mysql accounts which are out of credit
+clean_radacct_inactive.pl : Remove freeradius mysql accounts which are inactive
+find_sgidsuid : Searchs filesystem for SetGID , SetUID files 
+packup : Backup script 
+pgen : Password generator 
+ps_cpu : sort processes by cpu usage 
+ps_mem : sort processes by memory usage
+ps_nice : sort processes by Nice value 
+ps_size : sort processes by size 
+reniceall : renice over process names
+reporter : report disk usage , load , memory and disk
+runner.pl : runs given application for interval 
+space_remove.pl : remove space from file names , replace with _ 
+uncomment.pl : uncomment files 
+wait_for : wait for process to finish 
+wrapper : check status of tcp server , send something and expect something , and
+restarts server on stale status .

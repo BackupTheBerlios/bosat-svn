@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+#
+# my backup script , kind of cute , able to create separated backup files 
+# when given * on shell
+#
+# 
+#
+# Armin ranjbar <zoup@zoup.org>
+
+use warnings;
+use strict;
+
+(my $sec,my $min,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst) = localtime(time);
+$year += 1900;
+my $date = $mday."_".$mon."_".$year;
+
+
+system ("mkdir /var/backups/backup/$date");
+
+my $element ;
+    foreach $element (@ARGV) {
+
+my $path = $element;
+$path =~ s/\//-/g;
+$path =~ s/-//;
+
+my $name = "$path-$mday-$mon-$year.tar.gz";
+$name =~ s/--//g;
+system ("tar -czf $name $element");
+system ("mv $name /var/backups/backup/$date/");
+}
+
+
