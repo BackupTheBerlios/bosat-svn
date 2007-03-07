@@ -17,3 +17,5 @@ uncomment.pl : uncomment files
 wait_for : wait for process to finish 
 wrapper : check status of tcp server , send something and expect something , and
 restarts server on stale status .
+local_domains_generator : get list of local domains out of httpd.conf , suitable 
+for mailservers .
