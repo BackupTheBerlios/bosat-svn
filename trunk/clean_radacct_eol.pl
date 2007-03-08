@@ -1,10 +1,14 @@
 #!/usr/bin/perl
 
+# this script does clear readacct out of used accounts .
+# this is just available over Freeradius on Mysql .
+
+
 use strict;
 use warnings;
 use Mysql;
 
-
+# add Mysql username,password,target host here
 our $dbh = Mysql->connect('localhost', 'radius','root','');
 
 

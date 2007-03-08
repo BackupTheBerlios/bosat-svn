@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# tcp uptimer , check tcp port with kind of "send expect" analyzing system 
+# if server was stale or down , it does restart the server 
+
 use strict;
 use warnings;
 use IO::Socket::INET;

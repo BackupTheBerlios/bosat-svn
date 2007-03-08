@@ -2,6 +2,8 @@
 use warnings;
 use strict;
 
+# remove spaces out of files , replacing by _
+
 my @filelist=`find $ARGV[0]`;
 my $filename;
 

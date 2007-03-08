@@ -10,6 +10,7 @@
 use warnings;
 use strict;
 
+die "you have to enter some path to create backup\n" unless @ARGV ;
 (my $sec,my $min,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst) = localtime(time);
 $year += 1900;
 my $date = $mday."_".$mon."_".$year;

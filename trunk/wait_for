@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# waits from process to complete 
+
+
 use strict;
 use warnings;
 

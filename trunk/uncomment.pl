@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+# uncomment files 
+# bug : unable to detect middle comment files 
 
 open FILE,"<$ARGV[0]" or die "$!";
 my $backup=$ARGV[0].".bak";

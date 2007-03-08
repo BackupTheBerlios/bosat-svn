@@ -1,4 +1,18 @@
 #!/usr/bin/perl
-print "command  : ";chomp ($com=<stdin>);
-print "interval : ";chomp ($int=<stdin>);
-for ($a=0 ; $a < $int ; $a++) {system ($com);}
+
+use warnings;
+use strict;
+
+
+die "no command\n" unless $ARGV[0];
+die "no interval\n" unless $ARGV[1];
+
+my $command=$ARGV[0];
+my $interval=$ARGV[1];
+my $count;
+
+
+
+    for ($count=0;$count<=$interval;$count++) {
+	system $command;
+}

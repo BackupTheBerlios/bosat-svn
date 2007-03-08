@@ -1,2 +1,5 @@
 #!/bin/bash
-ps -eo pid,fname,pmem,size | sort -g -k 4
+
+# sort procces by size
+
+ps -eo pid,fname,pmem,size | sort -r -g -k 4
