@@ -11,8 +11,6 @@ my $command=$ARGV[0];
 my $interval=$ARGV[1];
 my $count;
 
-
-
     for ($count=0;$count<=$interval;$count++) {
 	system $command;
 }

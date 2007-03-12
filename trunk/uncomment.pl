@@ -3,7 +3,10 @@ use strict;
 use warnings;
 
 # uncomment files 
-# bug : unable to detect middle comment files 
+# bug : unable to detect lines that starting with #
+# add support for C/php like comments
+
+die "no filename supplied\n" unless $ARGV[0];
 
 open FILE,"<$ARGV[0]" or die "$!";
 my $backup=$ARGV[0].".bak";
@@ -20,12 +23,10 @@ close FILE;
 
 open FILE,"<$ARGV[0]" or die "$!";
 foreach my $line (<FILE>) {
-    unless ($line =~ /^\#/) {
-	unless ($line =~ /^\n/) {
-	    unless ($line =~ /\s+\#/)  {
+    $line =~ s/\#.+//;
+    next if $line =~ /^\n/;
 	print SELF $line;
 
-    }}}
 }
 system "mv SelF $ARGV[0]";
 

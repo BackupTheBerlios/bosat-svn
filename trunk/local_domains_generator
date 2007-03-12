@@ -16,6 +16,7 @@ foreach my $filename (@files) {
     open (FILE,$filename);
 
     foreach my $line (<FILE>) {
+	next if $line =~ /^\#/;
 
 	if ($line =~ /ServerName/i) {
 	    $line =~ s/ServerName//i;

@@ -1,16 +1,38 @@
 #!/usr/bin/perl
 
-# waits from process to complete 
-
+# waits from process to complete then execute command
+# example  :
+# wait_for rsync 10 halt
+#
+# checks every 10 second to see if rsync is still running , run half if it isnt.
+#
+# kind of bug : its unable to detect ps or grep status since its using them 
+# its not important to me , by the way fix would be easy using /proc fs .
+#
 
 use strict;
 use warnings;
 
+my $pname;
+my $interval;
+my @command;
+
+$pname = shift (@ARGV);
+$interval = shift (@ARGV);
 
 
-while (`ps -A | grep $ARGV[0]`) {
-    print ".";
-    sleep $ARGV[1];
-
+if ((!($pname)) || (!($interval)) || (!(@ARGV))) {
+    print "no argument supplied or missing\n";
+    print "\n";
+    print "wait_from <process name> <interval> <command>\n";
+    exit;
 }
-print "\n";
+
+
+while (`ps -A | grep $pname`) {
+
+    sleep $interval;
+}
+
+system (@ARGV);
+
