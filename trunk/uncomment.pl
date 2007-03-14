@@ -3,7 +3,6 @@ use strict;
 use warnings;
 
 # uncomment files 
-# bug : unable to detect lines that starting with #
 # add support for C/php like comments
 
 die "no filename supplied\n" unless $ARGV[0];
@@ -24,6 +23,7 @@ close FILE;
 open FILE,"<$ARGV[0]" or die "$!";
 foreach my $line (<FILE>) {
     $line =~ s/\#.+//;
+    $line =~ s/\#//;
     next if $line =~ /^\n/;
 	print SELF $line;
 
