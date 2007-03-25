@@ -25,6 +25,7 @@ if ((!($pname)) || (!($interval)) || (!(@ARGV))) {
     print "no argument supplied or missing\n";
     print "\n";
     print "wait_from <process name> <interval> <command>\n";
+    print "Example : wait_for `pidof top` 1 beep \n";
     exit;
 }
 
