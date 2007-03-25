@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+
+die "no command\nrunner_wait_for_return <command> <return code to expect> <-v>\n" unless $ARGV[0];
+die "no return value\nrunner_wait_for_return <command> <return code to expect> <-v>\n" unless defined $ARGV[1];
+
+my $command=$ARGV[0];
+my $returnv=$ARGV[1];
+my $verbose;
+if ($ARGV[2] eq "-v") {
+    $verbose=1;
+}
+$command .= " &> /dev/null";
+
+print system ($command);
+while (1) {
+    my $result=system ($command);
+    if ($result==$returnv) {
+	print "matchs the output value\n";
+	exit;
+    }
+    if ($verbose) { print "output is $result\n";};
+
+}
