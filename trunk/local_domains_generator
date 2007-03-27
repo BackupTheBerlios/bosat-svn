@@ -8,10 +8,10 @@ use strict;
 
 my @hostnames;
 
-my @files=@ARGV;
-die "no httpd.conf imported" unless @files;
 
-foreach my $filename (@files) {
+die "no httpd.conf imported" unless @ARGV;
+
+foreach my $filename (@ARGV) {
 
     open (FILE,$filename);
 
