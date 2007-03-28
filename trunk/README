@@ -1,3 +1,4 @@
+
 Bosat , Bunch of system administration tools 
 
 clean_radacct_eol : Remove freeradius mysql accounts which are out of credit
@@ -18,7 +19,7 @@ wait_for : wait for process to finish
 runner_waitfor_return : run application until given return received 
 wrapper : check status of tcp server , send something and expect something , and
 restarts server on stale status .
-local_domains_generator : get list of local domains out of httpd.conf , suitable 
+local_domain_generator : get list of local domains out of httpd.conf , suitable 
 for mailservers .
 uptimer : using "send expect" mechanism to detect service failure on localhost , 
 on failures restart the daemon
