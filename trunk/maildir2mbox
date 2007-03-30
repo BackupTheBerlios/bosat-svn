@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $1 ];then
+for file in `find $1 -type f`
+do
+cat $file | formail >> mbox
+done
+else 
+echo "maildir2mbox <maildir path>";
+fi
