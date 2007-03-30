@@ -1,5 +1,9 @@
 #!/bin/bash
-
+#
+#
+#
 # sorts process by cpu usage
-
+#
+#
+#
 ps -eo pid,fname,time,ni,stat,vsize,wchan,pcpu | sort -r -g -k 8

@@ -17,8 +17,7 @@ space_remove : remove space from file names , replace with _
 uncomment : uncomment files 
 wait_for : wait for process to finish 
 runner_waitfor_return : run application until given return received 
-wrapper : check status of tcp server , send something and expect something , and
-restarts server on stale status .
+wrapper : check status of tcp server , send something and expect something , and restarts server on stale status .
 local_domain_generator : get list of local domains out of httpd.conf , suitable 
 for mailservers .
 uptimer : using "send expect" mechanism to detect service failure on localhost , 

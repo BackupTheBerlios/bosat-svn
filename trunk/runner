@@ -1,5 +1,11 @@
 #!/usr/bin/perl
-
+#
+#
+#
+# run given command for given interval 
+#
+#
+#
 use warnings;
 use strict;
 
@@ -11,6 +17,11 @@ my $command=$ARGV[0];
 my $interval=$ARGV[1];
 my $count;
 
-    for ($count=0;$count<=$interval;$count++) {
-	system $command;
+for ($count=0;$count<=$interval;$count++) {
+    system $command;
 }
+
+
+
+
+

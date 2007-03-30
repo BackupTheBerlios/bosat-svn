@@ -1,7 +1,11 @@
 #!/usr/bin/perl
-
+#
+#
+#
 # this is renice all script , act like killall for nice 
-
+#
+#
+#
 use warnings;
 use strict;
 

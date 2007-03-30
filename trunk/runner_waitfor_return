@@ -1,5 +1,11 @@
 #!/usr/bin/perl
-
+#
+#
+#
+# runs given command until given return code returned 
+#
+#
+#
 use warnings;
 use strict;
 

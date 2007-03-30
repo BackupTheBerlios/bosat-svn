@@ -1,5 +1,10 @@
 #!/bin/bash
-
+#
+#
+#
 # this script tries to find setuid/gid files 
+#
+#
+#
 
 find / \( -perm -2000 -o -perm -4000 \) -type f -exec ls -lash {} ';'

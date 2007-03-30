@@ -1,15 +1,15 @@
 #!/usr/bin/perl
-
+#
+#
+#
 # waits from process to complete then execute command
-# example  :
-# wait_for rsync 10 halt
-#
-# checks every 10 second to see if rsync is still running , run half if it isnt.
-#
-# kind of bug : its unable to detect ps or grep status since its using them 
+# 
+# BUG 
+# its unable to detect ps or grep status since its using them ,
 # its not important to me , by the way fix would be easy using /proc fs .
 #
-
+#
+#
 use strict;
 use warnings;
 

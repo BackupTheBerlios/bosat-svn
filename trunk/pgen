@@ -1,7 +1,9 @@
 #!/usr/bin/perl
 #
+#
+#
 # Pgen , kind of useful Password Generator 
-# released at 1999 , published at 2006 
+# 
 #
 #
 
@@ -25,5 +27,5 @@ if (index($len,"all")=="0") {
     all;}
 $len=10 if ($len==/ /);
 for ($i=0;$i<$len;$i++) {
-printf ("%c" , 33 +int (rand(94)));}
+    printf ("%c" , 33 +int (rand(94)));}
 print "\n";

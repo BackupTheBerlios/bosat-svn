@@ -1,9 +1,17 @@
 #!/usr/bin/perl
+#
+#
+#
+# uncomment files
+#
+#
+#
+
+# TODO :
+# add support for C/php like comments
+
 use strict;
 use warnings;
-
-# uncomment files 
-# add support for C/php like comments
 
 die "no filename supplied\n" unless $ARGV[0];
 
@@ -18,19 +26,15 @@ foreach my $line (<FILE>) {
 
 close BACKUP;
 close FILE;
-
-
 open FILE,"<$ARGV[0]" or die "$!";
 foreach my $line (<FILE>) {
     $line =~ s/\#.+//;
     $line =~ s/\#//;
     next if $line =~ /^\n/;
-	print SELF $line;
+    print SELF $line;
 
 }
 system "mv SelF $ARGV[0]";
-
-
 
 close SELF;
 close FILE;

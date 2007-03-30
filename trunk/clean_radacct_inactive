@@ -1,20 +1,22 @@
 #!/usr/bin/perl
+#
+#
+#
+# this is experimental script that just cleans radacct out of inactive users .
+# i would suggest to use clean_radacct_eol.pl script 
+#
+#
+#
+
 use DBI;
 use warnings;
 use strict;
 
-# this is experimental script that just cleans radacct out of inactive users .
-# i would suggest to use clean_radacct_eol.pl script 
-
-
 die "clean_radacct_eol <databasename> <username> <password>\n" unless $ARGV[2];
-
-
-
 my $dbh = DBI->connect("DBI:mysql:$ARGV[0]", $ARGV[1], $ARGV[2])
-                or die "Couldn't connect to database: " . DBI->errstr;
+    or die "Couldn't connect to database: " . DBI->errstr;
 my $sth = $dbh->prepare('delete from radcheck where active <= current_date()-100 and active not like "0000-00-00"')
-	 or die "Couldn't prepare statement: " . $dbh->errstr;
+    or die "Couldn't prepare statement: " . $dbh->errstr;
 $sth->execute();
 $dbh->disconnect;
 
