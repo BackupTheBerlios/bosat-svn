@@ -9,11 +9,8 @@
 use warnings;
 use strict;
 
-
 die "replacer <current word> <replacing word> <path>\n" unless $ARGV[2];
-
 my @files=`find $ARGV[2]`;
-
 foreach my $element (@files) {
 
     open (FILE , $element);
