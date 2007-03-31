@@ -10,7 +10,7 @@
 use warnings;
 use strict;
 
-die "replacer <word> <path>\n" unless $ARGV[0] || $ARGV[1];
+die "replace_argument_with_blank_line <word> <path>\n" unless $ARGV[0] || $ARGV[1];
 
 my @files=`find $ARGV[1]`;
 
