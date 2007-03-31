@@ -11,18 +11,26 @@ use strict;
 use warnings;
 use IO::Socket::INET;
 
-my $host='127.0.0.1';
-my $dport='80';
 
-my $send_message='GET';
-my $expect_message='';
+die "wrong syntax\nuptimer <hostname> <tcp port> <message to send> <message to expect> <daemon path> <timeout> <interval>\nfor example : uptimer 127.0.0.1 80 GET \"\" /usr/local/apache/bin/httpd 30 20\n" unless $ARGV[6];
 
-my $timeout=30;
-my $interval=20;
+my $host=$ARGV[0];
+my $dport=$ARGV[1];
 
-my $daemon_path='/usr/local/apache/bin/httpd';
-my $exec_name='httpd';
-my $wlog="/var/log/wrapper_"."$host"."_"."$dport";
+my $send_message=$ARGV[2];
+my $expect_message=$ARGV[3];
+
+my $timeout=$ARGV[5];
+my $interval=$ARGV[6];
+
+my $daemon_path=$ARGV[4];
+
+my @nvalue = split ('/' , $daemon_path);
+my $exec_name=$nvalue[-1];
+
+
+
+my $wlog="/var/log/uptimer_"."$host"."_"."$dport";
 
 my $EOL = "\015\012";
 
@@ -38,12 +46,12 @@ while (1) {
 				      PeerAddr => $host,
 				      PeerPort => $dport,
 				      Timeout => $timeout ,   
-				      ) or &warning ("Connection Failed \"$host\:$dport\" :$! .\n");
+				      ) or &warning ("Connection Failed \"$host\:$dport\" :$! .");
     our $iftimeout=0;
     if ($server) {
 	alarm $timeout;
 	local $SIG{ALRM} = sub { 
-	    &warning ("TIMEOUT on \"$host:$dport\".\n");
+	    &warning ("TIMEOUT on \"$host:$dport\".");
 	    $server->shutdown(2);
 	    $iftimeout=1;
 
@@ -61,8 +69,7 @@ while (1) {
 	    if ($_ =~ /$expect_message/g) {
 		alarm 0;
 	    } else {
-		&warning ("UNMATCHED on \"$host\" , sending \"$send_message\" and expect \"$expect_message\" but got \"@message\" .\n");
-
+		&warning ("UNMATCHED on \"$host\" , sending \"$send_message\" and expect \"$expect_message\" but got \"@message\" .");
 	    }
 	}}
 
