@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Simple Installer
+# Simple Uninstaller
 #
 if [ $USER='root' ];then
 echo "good , you are root"
