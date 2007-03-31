@@ -68,5 +68,5 @@ echo "."
 echo "Done , read bosat documents starting with bosat (1) man page"
 echo "http://bosat.berlios.de"
 else 
-echo run as root
+echo please run as root , note that installing is not really essential .
 fi
