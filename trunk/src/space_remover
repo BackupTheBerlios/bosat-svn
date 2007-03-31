@@ -9,6 +9,7 @@
 use warnings;
 use strict;
 
+die "no path\nspace_remover <path>\n" unless $ARGV[0];
 my @filelist=`find $ARGV[0]`;
 my $filename;
 foreach $filename(@filelist) {    if ($filename =~ m/.\s./) {
