@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+#
+#
+# sort process by mem usage
+#
+#
+#
+ps -eo pid,fname,wchan,size,pmem | sort -r -g -k 5

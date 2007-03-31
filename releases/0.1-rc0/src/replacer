@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+#
+#
+#
+# its case sensitive mass replacer 
+#
+#
+#
+use warnings;
+use strict;
+
+die "replacer <current word> <replacing word> <path>\n" unless $ARGV[2];
+my @files=`find $ARGV[2]`;
+foreach my $element (@files) {
+
+    open (FILE , $element);
+    open (CN , ">/tmp/tempx");
+    foreach my $line (<FILE>) {
+	$line =~ s/$ARGV[0]/$ARGV[1]/gi;
+	print CN $line;
+    }
+    close FILE;
+    system ("mv /tmp/tempx $element");
+}
+system ("rm /tmp/tempx 2> /dev/null");

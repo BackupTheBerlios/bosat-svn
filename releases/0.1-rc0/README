@@ -1,0 +1,37 @@
+Bosat , Bunch of system administration tools 
+
+clean_radacct_eol : Remove freeradius mysql accounts which are out of credit
+clean_radacct_inactive : Remove freeradius mysql accounts which are inactive
+find_sgidsuid : Searchs filesystem for SetGID , SetUID files 
+packup : Backup script 
+pgen : Password generator 
+ps_cpu : sort processes by cpu usage 
+ps_mem : sort processes by memory usage
+ps_nice : sort processes by Nice value 
+ps_size : sort processes by size 
+reniceall : renice over process names
+reporter : report disk usage , load , memory and disk
+runner : runs given application for interval 
+space_remove : remove space from file names , replace with _ 
+uncomment : uncomment files 
+wait_for : wait for process to finish 
+runner_waitfor_return : run application until given return received 
+wrapper : check status of tcp server , send something and expect something , and restarts server on stale status .
+local_domain_generator : get list of local domains out of httpd.conf , suitable 
+for mailservers .
+uptimer : using "send expect" mechanism to detect service failure on localhost , 
+on failures restart the daemon
+swsup : Software suspend on machines that support it 
+replacer : replaces string on gives path 
+replace_argument_with_blank_line : replaces string with blank line , suiteable for
+removing passwords .
+powersave : saves power , enable hdd laptop mode and etc on platforms that 
+does support it features 
+
+
+
+each script (including bosat itself) has a man page .
+
+
+
+http://bosat.berlios.de

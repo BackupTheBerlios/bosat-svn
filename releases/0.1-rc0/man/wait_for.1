@@ -1,0 +1,22 @@
+.TH man 1 "31 March 2007" "0.1" "wait_for man page"
+.SH NAME
+wait_for
+.SH SYNOPSIS
+.B waits for process to complete then execute command
+.SH EXAMPLES
+wait_for `pidof rsync` 1 beep
+.SH DESCRIPTION
+check the given process for given interval , when process is no longer alive runs the given command .
+.SH OPTIONS
+wait_for <process name> <interval> <command>
+.SH FILES
+.P 
+.I /usr/share/man/man1/wait_for.1.gz
+.SH SEE ALSO
+.BR bosat (1), 
+.SH BUGS
+its unable to detect ps or grep status since its using them , its not important to me , by the way fix would be easy using /proc fs .
+.SH AUTHOR
+.nf
+Armin ranjbar <zoup@zoup.org>
+.fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+#
+#
+# issues software suspend 
+#
+#
+#
+echo platform > /sys/power/disk
+echo disk > /sys/power/state

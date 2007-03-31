@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+#
+#
+#
+# replaces <word> with new line , in fact it does remove files containting 
+# <word> from given files.
+#
+#
+#
+use warnings;
+use strict;
+
+die "replace_argument_with_blank_line <word> <path>\n" unless $ARGV[0] || $ARGV[1];
+
+my @files=`find $ARGV[1]`;
+
+foreach my $element (@files) {
+
+    open (FILE , $element) or die;
+    open (CN , ">/tmp/tempz") or die;
+    foreach my $line (<FILE>) {
+	next if $line =~ /$ARGV[0]/i;
+	print CN $line;
+    }
+    close FILE;
+    close CN;
+    system ("mv /tmp/tempz $element");
+}
+system ("rm /tmp/temp 2> /dev/null");

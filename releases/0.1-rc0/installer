@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# Simple Installer
+#
+if [ $USER='root' ];then
+echo "good , you are root"
+echo -n "coping Documents to /usr/share/doc/bosat .."
+mkdir /usr/share/doc/bosat/ 2>/dev/null
+cp LICENSE README /usr/share/doc/bosat/
+echo "."
+
+echo -n "fixing scripts and man pages permission .."
+chmod -R 755 man src
+echo "."
+
+echo -n "gziping man pages .."
+gzip man/* 2>/dev/null
+echo "."
+
+echo -n "installing man pages .."
+cp man/ps_size.1.gz /usr/share/man/man1/
+cp man/reporter.1.gz /usr/share/man/man1/
+cp man/space_remover.1.gz /usr/share/man/man1/
+cp man/uncomment.1.gz /usr/share/man/man1/
+cp man/clean_radacct_inactive.1.gz /usr/share/man/man1/
+cp man/runner.1.gz /usr/share/man/man1/
+cp man/wait_for.1.gz /usr/share/man/man1/
+cp man/find_sgidsuid.1.gz /usr/share/man/man1/
+cp man/clean_radacct_eol.1.gz /usr/share/man/man1/
+cp man/replacer.1.gz /usr/share/man/man1/
+cp man/pgen.1.gz /usr/share/man/man1/
+cp man/replace_argument_with_blank_line.1.gz /usr/share/man/man1/
+cp man/ps_cpu.1.gz /usr/share/man/man1/
+cp man/ps_mem.1.gz /usr/share/man/man1/
+cp man/maildir2mbox.1.gz /usr/share/man/man1/
+cp man/local_domain_generator.1.gz /usr/share/man/man1/
+cp man/bosat.1.gz /usr/share/man/man1/
+cp man/reniceall.1.gz /usr/share/man/man1/
+cp man/runner_waitfor_return.1.gz /usr/share/man/man1/
+cp man/powersave.8.gz /usr/share/man/man8/
+cp man/swsup.8.gz /usr/share/man/man8/
+echo "."
+echo -n "installing scripts .."
+cp src/pgen /usr/bin/
+cp src/local_domain_generator /usr/bin/
+cp src/replacer /usr/bin/
+cp src/reporter /usr/bin/
+cp src/runner_waitfor_return /usr/bin/
+cp src/replace_argument_with_blank_line /usr/bin/
+cp src/find_sgidsuid /usr/bin/
+cp src/wait_for /usr/bin/
+cp src/uncomment /usr/bin/
+cp src/maildir2mbox /usr/bin/
+cp src/clean_radacct_inactive /usr/bin/
+cp src/packup /usr/bin/
+cp src/ps_cpu /usr/bin/
+cp src/ps_mem /usr/bin/
+cp src/runner /usr/bin/
+cp src/uptimer /usr/bin/
+cp src/space_remover /usr/bin/
+cp src/clean_radacct_eol /usr/bin/
+cp src/reniceall /usr/bin/
+cp src/ps_nice /usr/bin/
+cp src/ps_size /usr/bin/
+cp src/powersave /usr/sbin/
+cp src/swsup /usr/sbin/
+echo "."
+echo "Done , read bosat documents starting with bosat (1) man page"
+echo "http://bosat.berlios.de"
+else 
+echo please run as root , note that installing is not really essential .
+fi
