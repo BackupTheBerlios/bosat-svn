@@ -1,12 +1,23 @@
 #!/bin/bash
-
-if [whoami='root'];then
-mkdir /usr/share/doc/bosat/
+#
+# Simple Installer
+#
+if [ $USER='root' ];then
+echo "good , you are root"
+echo -n "coping Documents to /usr/share/doc/bosat .."
+mkdir /usr/share/doc/bosat/ 2>/dev/null
 cp LICENSE README /usr/share/doc/bosat/
+echo "."
 
-chmod -r 755 man src
-gzip man/*
+echo -n "fixing scripts and man pages permission .."
+chmod -R 755 man src
+echo "."
 
+echo -n "gziping man pages .."
+gzip man/* 2>/dev/null
+echo "."
+
+echo -n "installing man pages .."
 cp man/ps_size.1.gz /usr/share/man/man1/
 cp man/reporter.1.gz /usr/share/man/man1/
 cp man/space_remover.1.gz /usr/share/man/man1/
@@ -28,7 +39,8 @@ cp man/reniceall.1.gz /usr/share/man/man1/
 cp man/runner_waitfor_return.1.gz /usr/share/man/man1/
 cp man/powersave.8.gz /usr/share/man/man8/
 cp man/swsup.8.gz /usr/share/man/man8/
-
+echo "."
+echo -n "installing scripts .."
 cp src/pgen /usr/bin/
 cp src/local_domain_generator /usr/bin/
 cp src/replacer /usr/bin/
@@ -52,4 +64,9 @@ cp src/ps_nice /usr/bin/
 cp src/ps_size /usr/bin/
 cp src/powersave /usr/sbin/
 cp src/swsup /usr/sbin/
+echo "."
+echo "Done , read bosat documents starting with bosat (1) man page"
+echo "http://bosat.berlios.de"
+else 
+echo run as root
 fi
