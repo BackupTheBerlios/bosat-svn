@@ -39,6 +39,7 @@ select WLOG;
 $|=1;
 select STDOUT;
 
+exit if fork;
 
 while (1) {
     my $server=IO::Socket::INET->new (
