@@ -28,3 +28,11 @@ replace_argument_with_blank_line : replaces string with blank line , suiteable f
 removing passwords .
 powersave : saves power , enable hdd laptop mode and etc on platforms that 
 does support it features 
+
+
+
+each script (including bosat itself) has a man page .
+
+
+
+http://bosat.berlios.de
