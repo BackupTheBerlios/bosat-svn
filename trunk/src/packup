@@ -7,7 +7,6 @@
 #
 # 
 #
-
 use warnings;
 use strict;
 
@@ -17,7 +16,7 @@ $year += 1900;
 my $date = $mday."_".$mon."_".$year;
 
 
-system ("mkdir /var/backups/backup/$date");
+system ("mkdir -p /var/backups/backup/$date");
 
 my $element ;
 foreach $element (@ARGV) {
