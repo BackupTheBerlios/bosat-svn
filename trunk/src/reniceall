@@ -9,6 +9,6 @@
 use warnings;
 use strict;
 
-die "DIED : no input , us reniceall <new nice value> <proc name>  \n" unless ($ARGV[0] & $ARGV[1]) ;
+die "DIED : no input , use reniceall <new nice value> <proc name>  \n" unless ($ARGV[0] & $ARGV[1]) ;
 my $proc_list=`pidof $ARGV[1]`;
 system  ("renice $ARGV[0] $proc_list");
