@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+# Simple Installer
+#
+if [ $USER='root' ];then
+echo "good , you are root"
+echo -n "removing man pages .."
+rm /usr/share/man/man1/ps_size.1.gz 
+rm /usr/share/man/man1/reporter.1.gz 
+rm /usr/share/man/man1/space_remover.1.gz 
+rm /usr/share/man/man1/uncomment.1.gz 
+rm /usr/share/man/man1/clean_radacct_inactive.1.gz 
+rm /usr/share/man/man1/runner.1.gz 
+rm /usr/share/man/man1/wait_for.1.gz 
+rm /usr/share/man/man1/find_sgidsuid.1.gz 
+rm /usr/share/man/man1/clean_radacct_eol.1.gz 
+rm /usr/share/man/man1/replacer.1.gz 
+rm /usr/share/man/man1/pgen.1.gz 
+rm /usr/share/man/man1/replace_argument_with_blank_line.1.gz 
+rm /usr/share/man/man1/ps_cpu.1.gz 
+rm /usr/share/man/man1/ps_mem.1.gz 
+rm /usr/share/man/man1/maildir2mbox.1.gz 
+rm /usr/share/man/man1/local_domain_generator.1.gz 
+rm /usr/share/man/man1/bosat.1.gz 
+rm /usr/share/man/man1/reniceall.1.gz 
+rm /usr/share/man/man1/runner_waitfor_return.1.gz 
+rm /usr/share/man/man8/powersave.8.gz 
+rm /usr/share/man/man8/swsup.8.gz 
+echo "."
+echo -n "removing scripts .."
+rm /usr/bin/pgen
+rm /usr/bin/local_domain_generator
+rm /usr/bin/replacer
+rm /usr/bin/reporter
+rm /usr/bin/runner_waitfor_return
+rm /usr/bin/replace_argument_with_blank_line
+rm /usr/bin/find_sgidsuid
+rm /usr/bin/wait_for
+rm /usr/bin/uncomment
+rm /usr/bin/maildir2mbox
+rm /usr/bin/clean_radacct_inactive
+rm /usr/bin/packup
+rm /usr/bin/ps_cpu
+rm /usr/bin/ps_mem
+rm /usr/bin/runner
+rm /usr/bin/uptimer
+rm /usr/bin/space_remover
+rm /usr/bin/clean_radacct_eol
+rm /usr/bin/reniceall
+rm /usr/bin/ps_nice
+rm /usr/bin/ps_size
+rm /usr/sbin/powersave
+rm /usr/sbin/swsup
+echo "."
+echo "Done ."
+echo "http://bosat.berlios.de"
+else 
+echo please run as root .
+fi
