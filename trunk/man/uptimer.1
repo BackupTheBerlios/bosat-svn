@@ -1,0 +1,24 @@
+.TH man 1 "31 March 2007" "0.1" "uptimer man page"
+.SH NAME
+uptimer
+.SH SYNOPSIS
+.B check tcp service , send message and wait for expected message , on timeout , connection refused or unmantched returned message restarts the daemon.
+.SH EXAMPLES
+uptimer 127.0.0.1 80 GET "" /usr/local/apache/bin/httpd 30 10
+.nf
+each 10 second send GET message to 127.0.0.1:80 and expect anything , on timeout , connection refused restart the daemon .
+.SH DESCRIPTION
+it does restart the daemon by killing it first , this scripts was written for apache in first place but can be used on any tcp service . 
+.SH OPTIONS
+uptimer <hostname> <tcp port> <message to send> <message to expect> <daemon path> <timeout> <interval>
+.SH FILES
+.P 
+.I /usr/share/man/man1/uptimer.1.gz
+.SH SEE ALSO
+.BR bosat (1), 
+.SH BUGS
+No known bugs at this time.
+.SH AUTHOR
+.nf
+Armin ranjbar <zoup@zoup.org>
+.fi
