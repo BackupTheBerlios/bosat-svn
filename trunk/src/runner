@@ -2,7 +2,7 @@
 #
 #
 #
-# run given command for given interval 
+# runs given command for given interval 
 #
 #
 #
@@ -10,8 +10,8 @@ use warnings;
 use strict;
 
 
-die "no command\n" unless $ARGV[0];
-die "no interval\n" unless $ARGV[1];
+die "no command\nrunner <command> <interval>\n" unless $ARGV[0];
+die "no interval\nrunner <command> <interval>\n" unless $ARGV[1];
 
 my $command=$ARGV[0];
 my $interval=$ARGV[1];
