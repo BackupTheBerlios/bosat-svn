@@ -10,7 +10,8 @@ cp LICENSE README /usr/share/doc/bosat/
 echo "."
 
 echo -n "fixing scripts and man pages permission .."
-chmod -R 755 man src
+chmod -R 755 src
+chmod -R 644 man
 echo "."
 
 echo -n "gziping man pages .."
