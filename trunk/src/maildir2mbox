@@ -1,5 +1,11 @@
 #!/bin/bash
-
+#
+#
+#
+# converts maildir directories into mboxes
+#
+#
+#
 if [ $1 ];then
 for file in `find $1 -type f`
 do
