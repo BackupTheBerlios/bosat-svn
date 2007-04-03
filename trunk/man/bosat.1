@@ -2,9 +2,60 @@
 .SH NAME
 Bosat
 .SH SYNOPSIS
-.B Bosat is a Toolkit for system administrators , professional users . 
+.B Bosat is a Toolkit for system administrators , professional users. 
 .SH DESCRIPTION
-this is set of tools that allows many tasks to be done in more automated and faster way .
+this is set of tools that allows many tasks to be done in more automated and faster way.
+.nf 
+ 
+.nf
+clean_radacct_eol : Remove freeradius mysql accounts which are out of credit.
+.nf
+clean_radacct_inactive : Remove freeradius mysql accounts which are inactive.
+.nf
+find_sgidsuid : Searchs filesystem for SetGID , SetUID files.
+.nf
+packup : Backup script.
+.nf
+pgen : Password generator.
+.nf
+maildir2mbox : converts maildir directories into mbox files .
+.nf
+ps_cpu : sort processes by cpu usage.
+.nf
+ps_mem : sort processes by memory usage.
+.nf
+ps_nice : sort processes by Nice value.
+.nf
+ps_size : sort processes by size.
+.nf
+reniceall : renice over process names.
+.nf
+reporter : report disk usage , load , memory and disk.
+.nf
+runner : runs given application for interval.
+.nf
+space_remove : remove space from file names , replace with _.
+.nf
+uncomment : uncomment files.
+.nf
+wait_for : wait for process to finish.
+.nf
+runner_waitfor_return : run application until given return received. 
+.nf
+uptimer : check status of tcp server , send something and expect something , and restarts server on stale status.
+.nf
+local_domain_generator : get list of local domains out of httpd.conf , suitable for mailservers.
+.nf
+uptimer : using "send expect" mechanism to detect service failure on localhost , on failures restart the daemon.
+.nf
+swsup : Software suspend on machines that support it.
+.nf
+replacer : replaces string on gives path.
+.nf
+replace_argument_with_blank_line : replaces string with blank line , suiteable for removing passwords.
+.nf
+powersave : saves power , enable hdd laptop mode and etc on platforms that does support this features.
+.nf
 .SH FILES
 .P 
 .I /usr/share/man/man1/Bosat.1.gz

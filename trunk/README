@@ -5,6 +5,7 @@ clean_radacct_inactive : Remove freeradius mysql accounts which are inactive.
 find_sgidsuid : Searchs filesystem for SetGID , SetUID files .
 packup : Backup script .
 pgen : Password generator .
+maildir2mbox : converts maildir directories into mbox files .
 ps_cpu : sort processes by cpu usage .
 ps_mem : sort processes by memory usage .
 ps_nice : sort processes by Nice value .
@@ -12,11 +13,11 @@ ps_size : sort processes by size .
 reniceall : renice over process names .
 reporter : report disk usage , load , memory and disk .
 runner : runs given application for interval .
-space_remove : remove space from file names , replace with _ .
+space_remover : remove space from file names , replace with _ .
 uncomment : uncomment files .
 wait_for : wait for process to finish .
 runner_waitfor_return : run application until given return received .
-wrapper : check status of tcp server , send something and expect something , and restarts server on stale status .
+uptimer : check status of tcp server , send something and expect something , and restarts server on stale status .
 local_domain_generator : get list of local domains out of httpd.conf , suitable 
 for mailservers .
 uptimer : using "send expect" mechanism to detect service failure on localhost , 

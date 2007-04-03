@@ -38,6 +38,8 @@ cp man/local_domain_generator.1.gz /usr/share/man/man1/
 cp man/bosat.1.gz /usr/share/man/man1/
 cp man/reniceall.1.gz /usr/share/man/man1/
 cp man/runner_waitfor_return.1.gz /usr/share/man/man1/
+cp man/packup.1.gz /usr/share/man/man1/
+cp man/uptimer.1.gz /usr/share/man/man1/
 cp man/powersave.8.gz /usr/share/man/man8/
 cp man/swsup.8.gz /usr/share/man/man8/
 echo "."
@@ -53,7 +55,7 @@ cp src/wait_for /usr/bin/
 cp src/uncomment /usr/bin/
 cp src/maildir2mbox /usr/bin/
 cp src/clean_radacct_inactive /usr/bin/
-cp src/packup /usr/bin/
+cp src/packup /usr/bin/e
 cp src/ps_cpu /usr/bin/
 cp src/ps_mem /usr/bin/
 cp src/runner /usr/bin/
