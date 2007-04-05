@@ -1,0 +1,63 @@
+#!/usr/bin/perl
+#
+#
+#
+# experimental system reporter script 
+#
+#
+#
+use strict;
+use warnings;
+
+# TODO :
+# support for memory
+# support for swap
+
+my $hostname;
+my @ip;
+my $line;
+
+chomp ($hostname=`hostname`);
+
+foreach $line (`ifconfig`) {
+    next unless  $line =~ /inet /;
+    next if  $line =~ /127.0.0.1/;
+    $line =~ s/inet addr://;
+    $line =~ s/\s//g;
+    $line =~ s/Bcast.+//g;
+    $line =~ s/Mask.+//g;
+    push  @ip,$line;;
+}
+
+while (1) {
+# load check 
+    my $uptime=`cat /proc/loadavg`;
+    my @loads;
+    my $l1;
+    my $l5;
+    my $l15;
+    @loads= split (' ',$uptime);
+
+($l1,$l5,$l15)=($loads[0],$loads[1],$loads[2]);
+
+if (($l1 > 40) || ($l5 > 40) || ($l15 > 40)) {
+    &war ("Loadavg is very high : $l1 $l5 $l15\n");
+}
+
+# disk check
+my @diskv;
+
+foreach  $line (`df`) {
+    next unless $line =~ /^\/dev/;
+    @diskv = split (' ',$line);
+    $diskv[4] =~ s/%//;
+
+    if ($diskv[4] > 80) {
+	&war ("Disk usage high : $diskv[0] on $diskv[5] is $diskv[4]% full\n");
+    }}
+sleep 1;
+}
+
+sub war {
+    print "### Warning $hostname (@ip) : $_[0]";
+};

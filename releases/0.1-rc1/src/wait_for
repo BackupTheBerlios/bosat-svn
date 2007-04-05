@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+#
+#
+#
+# waits from process to complete then execute command
+# 
+# BUG 
+# its unable to detect ps or grep status since its using them ,
+# its not important to me , by the way fix would be easy using /proc fs .
+#
+#
+#
+use strict;
+use warnings;
+
+my $pname;
+my $interval;
+my @command;
+
+$pname = shift (@ARGV);
+$interval = shift (@ARGV);
+
+
+if ((!($pname)) || (!($interval)) || (!(@ARGV))) {
+    print "no argument supplied or missing\n";
+    print "\n";
+    print "wait_from <process name> <interval> <command>\n";
+    print "Example : wait_for `pidof top` 1 beep \n";
+    exit;
+}
+
+
+while (`ps -A | grep $pname`) {
+
+    sleep $interval;
+}
+
+system (@ARGV);
+

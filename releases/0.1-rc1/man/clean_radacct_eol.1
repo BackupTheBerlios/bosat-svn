@@ -1,0 +1,25 @@
+.TH man 1 "31 March 2007" "0.1" "clean_radacct_eol man page"
+.SH NAME
+clean_radacct_eol
+.SH SYNOPSIS
+.B this script does clear freeradius readacct table out of used accounts.
+.SH EXAMPLES
+clean_radacct_eol 127.0.0.1 radius freeradius secret
+.SH DESCRIPTION
+this script is just working on mysql databases , its kind of useful mostly on
+slow machines that get slowed after tons of unused account information on 
+database . 
+.SH OPTIONS
+clean_radacct_eol <hostname> <databasename> <username> <password>
+.SH FILES
+.P 
+.I /usr/share/man/man1/clean_radacct_eol.1.gz
+.SH SEE ALSO
+.BR bosat (1), 
+.BR clean_radacct_inactive (1).
+.SH BUGS
+just usable on Mysql databases.
+.SH AUTHOR
+.nf
+Armin ranjbar <zoup@zoup.org>
+.fi

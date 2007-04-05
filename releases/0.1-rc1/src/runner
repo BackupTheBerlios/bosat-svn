@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+#
+#
+#
+# runs given command for given interval 
+#
+#
+#
+use warnings;
+use strict;
+
+
+die "no command\nrunner <command> <interval>\n" unless $ARGV[0];
+die "no interval\nrunner <command> <interval>\n" unless $ARGV[1];
+
+my $command=$ARGV[0];
+my $interval=$ARGV[1];
+my $count;
+
+for ($count=0;$count<=$interval;$count++) {
+    system $command;
+}
+
+
+
+
+

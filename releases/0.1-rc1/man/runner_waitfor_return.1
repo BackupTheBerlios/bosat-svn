@@ -1,0 +1,24 @@
+.TH man 1 "31 March 2007" "0.1" "runner_waitfor_return man page"
+.SH NAME
+runner_waitfor_return
+.SH SYNOPSIS
+.B  runs given command until given return code returned
+.SH EXAMPLES
+runner_waitfor_return "ls /root/a" 0 
+.nf
+waits for "ls /root/a" to return 0
+.SH DESCRIPTION
+this script runs the given command each second until expected return code returned .
+.SH OPTIONS
+runner_wait_for_return <command> <return code to expect> <-v>
+.SH FILES
+.P 
+.I /usr/share/man/man1/runner_waitfor_return.1.gz
+.SH SEE ALSO
+.BR bosat (1), 
+.SH BUGS
+No known bugs at this time.
+.SH AUTHOR
+.nf
+Armin ranjbar <zoup@zoup.org>
+.fi

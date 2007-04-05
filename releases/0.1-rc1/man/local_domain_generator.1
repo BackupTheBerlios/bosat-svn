@@ -1,0 +1,23 @@
+.TH man 1 "31 March 2007" "0.1" "local_domain_generator man page"
+.SH NAME
+local_domain_generator
+.SH SYNOPSIS
+.B generates local.domains file out of httpd.conf
+.SH EXAMPLES
+local_domain_generator /etc/apache/conf.d/
+.SH DESCRIPTION
+generates local.domains file out of httpd.conf , note that you can use wild cards which is normal in Debian installation (/etc/apache/conf.d/).
+this scripts looks for virtual host server names in apache config files and put all of server name in /etc/local.domains file , suitable for mail server .
+.SH OPTIONS
+local_domain_generator <httpd.conf path>
+.SH FILES
+.P 
+.I /usr/share/man/man1/local_domain_generator.1.gz
+.SH SEE ALSO
+.BR bosat (1), 
+.SH BUGS
+No known bugs at this time.
+.SH AUTHOR
+.nf
+Armin ranjbar <zoup@zoup.org>
+.fi

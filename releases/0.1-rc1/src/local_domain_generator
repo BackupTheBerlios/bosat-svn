@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+#
+#
+#
+# generates local.domains file out of httpd.conf , note that you can use 
+# wild cards which is normal in debian installation (/etc/apache/conf.d/).
+#
+#
+#
+
+use warnings;
+use strict;
+
+my @hostnames;
+
+die "no httpd.conf imported" unless @ARGV;
+foreach my $filename (@ARGV) {
+    open (FILE,$filename);
+    foreach my $line (<FILE>) {
+	next if $line =~ /^\#/;
+	if ($line =~ /ServerName/i) {
+	    $line =~ s/ServerName//i;
+	    $line =~ s/\s//g;
+	    push @hostnames , $line;
+	    close FILE;
+	}}};
+
+open (DOMAIN_FILE,">","/etc/local.domains");
+print DOMAIN_FILE "localhost.localdomain\n";
+print DOMAIN_FILE `cat /etc/hostname`;
+foreach my $line (@hostnames) {
+    print DOMAIN_FILE "$line\n";
+}
+close DOMAIN_FILE;

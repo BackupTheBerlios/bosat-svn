@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+#
+#
+#
+# Pgen , kind of useful Password Generator 
+# 
+#
+#
+
+print "Enter Password Lenth [10] | low,all : ";
+chomp ($len=<stdin>);
+sub lo {
+    for ($i=0;$i<$len;$i++) {
+	printf (("%c" , 97 +int (rand(25))));}
+    print "\n";
+    exit;}
+sub all {
+    for ($i=0;$i<$len;$i++) {
+	printf (("%c" , int (rand(250))));}
+    print "\n";
+    exit;}
+if (index($len,"low")=="0") {
+    $len=10 ;
+    lo;}
+if (index($len,"all")=="0") {
+    $len=10 ;
+    all;}
+$len=10 if ($len==/ /);
+for ($i=0;$i<$len;$i++) {
+    printf ("%c" , 33 +int (rand(94)));}
+print "\n";
