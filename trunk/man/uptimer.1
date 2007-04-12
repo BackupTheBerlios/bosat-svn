@@ -6,7 +6,7 @@ uptimer
 .SH EXAMPLES
 uptimer 127.0.0.1 80 GET "" /usr/local/apache/bin/httpd 30 10
 .nf
-each 10 second send GET message to 127.0.0.1:80 and expect anything , on timeout , connection refused restart the daemon .
+send GET message for each 10 second to 127.0.0.1:80 and expect anything , on timeout , connection refused restart the daemon .
 .SH DESCRIPTION
 it does restart the daemon by killing it first , this scripts was written for apache in first place but can be used on any tcp service . 
 .SH OPTIONS
