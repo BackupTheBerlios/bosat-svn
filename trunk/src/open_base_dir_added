@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+#
+#
+#
+# generates local.domains file out of httpd.conf , note that you can use 
+# wild cards which is normal in debian installation (/etc/apache/conf.d/).
+#
+#
+#
+
+use warnings;
+use strict;
+
+my @httpd;
+my $count=0;
+my $temp;
+
+open (OFILE,">httpd.conf.new") or die;
+open (FILE,'/usr/local/apache/conf/httpd.conf') or die;
+
+
+    @httpd=<FILE>;
+    foreach my $line (@httpd) {
+
+	if ($httpd[$count] =~ /^DocumentRoot/) {
+	    	if ($httpd[$count+1] !~ /^php_admin/) {
+	    	if ($httpd[$count+1] !~ /</) {
+	print OFILE $line;
+	$line =~ s/DocumentRoot/php_admin_value open_basedir/;
+    }}};
+
+	print OFILE $line;
+	$count++;
+    };
+
+	    close FILE;
+	    close OFILE;
+system "cp httpd.conf.new /usr/local/apache/conf/httpd.conf";
