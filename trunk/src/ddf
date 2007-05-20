@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+die "wrong syntax!\nddf <server-status page> <maximum number of connections>\nExample : \nddf http://127.0.0.1/server-status/ 40\n" unless $ARGV[1];
+
+
+#exit if fork;
+
+
+open WLOG,">>/var/log/apache_dos_defender.log" or die "unable to open log file : $! \n";
+
+while () {
+
+    my @links=`links -dump $ARGV[0]`;
+    my $start=0;
+    my @temp;
+    my @ip;
+    my @keys;
+    my $line;
+    my %hash;
+    my $iptables;
+
+    foreach $line (@links) {
+	if ($start==1) {
+	    if ($line =~ /----------------------------------------------------------------------/) {
+		$start=0;
+		next;
+	    }
+	    next if ($line =~ /^\s/);
+	    @temp=split (/\s+/,$line);
+	    push @ip , $temp[10];
+	}
+	if ($line =~ /VHost/) {
+	    $start=1;
+	}
+    }
+    foreach $line (@ip) {
+	$hash{$line}++;
+    }
+    @keys=keys %hash;
+    foreach $line (@keys) {
+	if ($hash{$line} > $ARGV[1]) {
+	    $iptables=`iptables -L -n`;
+	    if ($iptables =~ /$line/) { 
+		next ;
+
+	    } else {
+		next if $line =~ /127.0.0.1/;
+		print WLOG "$line has $hash{$line} connections\n";
+		system "iptables -A INPUT -s $line -j DROP";
+	    }}}
+	sleep 2;
+    }
