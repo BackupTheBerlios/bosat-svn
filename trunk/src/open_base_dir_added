@@ -25,8 +25,11 @@ open (FILE,'/usr/local/apache/conf/httpd.conf') or die;
 	if ($httpd[$count] =~ /^DocumentRoot/) {
 	    	if ($httpd[$count+1] !~ /^php_admin/) {
 	    	if ($httpd[$count+1] !~ /</) {
+
 	print OFILE $line;
+
 	$line =~ s/DocumentRoot/php_admin_value open_basedir/;
+	$line =~ s/public_html.*/tmp/;
     }}};
 
 	print OFILE $line;
@@ -35,4 +38,4 @@ open (FILE,'/usr/local/apache/conf/httpd.conf') or die;
 
 	    close FILE;
 	    close OFILE;
-system "cp httpd.conf.new /usr/local/apache/conf/httpd.conf";
+system "mv httpd.conf.new /usr/local/apache/conf/httpd.conf";
