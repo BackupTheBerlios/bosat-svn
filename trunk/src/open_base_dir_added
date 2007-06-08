@@ -11,11 +11,14 @@
 use warnings;
 use strict;
 
+
+exit if fork();
+while () {
 my @httpd;
 my $count=0;
 my $temp;
 
-while () {
+
 my $isnew=0;
 
 open (OFILE,">httpd.conf.new") or die;
@@ -35,17 +38,16 @@ open (FILE,'/usr/local/apache/conf/httpd.conf') or die;
 	$line =~ s/public_html.*/:\/tmp/;
 	$isnew=1;
     }}};
-
 	print OFILE $line;
 	$count++;
     };
 
 	    close FILE;
 	    close OFILE;
-if ($isnew=1) {
+if ($isnew==1) {
 system "mv httpd.conf.new /usr/local/apache/conf/httpd.conf";
 system "service httpd restart";
 }
 
-sleep 200;
+sleep 20;
 }
