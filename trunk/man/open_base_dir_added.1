@@ -1,0 +1,27 @@
+.TH man 1 "31 March 2007" "0.1" "open_base_dir_added man page"
+.SH NAME
+open_base_dir_added
+.SH SYNOPSIS
+.B generates local.domains file out of httpd.conf
+.SH EXAMPLES
+open_base_dir_added /etc/apache/conf.d/
+.SH DESCRIPTION
+this script does look for DocumentRoot directive in virtualhosts
+and add php_admin_value open_basedir restricted to home that
+directory and /tmp , its highly recomended for hosting .
+note that this run in background and change httpd.conf only when new 
+<Virtualhost> without this limitation added , and after modification 
+it does restart apache .
+envinronments
+.SH FILES
+.P 
+.I /usr/share/man/man1/open_base_dir_added.1.gz
+.I /usr/local/apache/conf/httpd.conf 
+.SH SEE ALSO
+.BR bosat (1), 
+.SH BUGS
+its not tested on any version of apache but 1.3.*
+.SH AUTHOR
+.nf
+Armin ranjbar <zoup@zoup.org>
+.fi
