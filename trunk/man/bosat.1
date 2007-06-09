@@ -1,4 +1,4 @@
-.TH man 1 "31 March 2007" "0.1" "Bosat man page"
+.TH man 1 "31 March 2007" "0.2" "Bosat man page"
 .SH NAME
 Bosat
 .SH SYNOPSIS
@@ -56,6 +56,8 @@ replace_argument_with_blank_line : replaces string with blank line , suiteable f
 .nf
 powersave : saves power , enable hdd laptop mode and etc on platforms that does support this features.
 .nf
+open_base_dir_added :this script does look for DocumentRoot directive in virtualhosts and add php_admin_value open_basedir retrication
+.nf
 .SH FILES
 .P 
 .I /usr/share/man/man1/Bosat.1.gz
@@ -106,6 +108,8 @@ powersave : saves power , enable hdd laptop mode and etc on platforms that does 
 .nf
 .I /usr/share/man/man1/wait_for.1.gz
 .nf
+.I /usr/share/man/man1/open_base_dir_added
+.nf
 .SH SEE ALSO
 .BR bosat (1), 
 .BR clean_radacct_eol (1),
@@ -130,7 +134,8 @@ powersave : saves power , enable hdd laptop mode and etc on platforms that does 
 .BR swsup (1),
 .BR uncomment (1),
 .BR uptimer (1),
-.BR wait_for (1)
+.BR wait_for (1),
+.BR open_base_dir_added (1)
 .SH AUTHOR
 .nf
 Armin ranjbar <zoup@zoup.org>
