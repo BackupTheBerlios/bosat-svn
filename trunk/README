@@ -17,7 +17,8 @@ space_remover : remove space from file names , replace with _ .
 uncomment : uncomment files .
 wait_for : wait for process to finish .
 runner_waitfor_return : run application until given return received .
-uptimer : check status of tcp server , send something and expect something , and restarts server on stale status .
+uptimer : check status of tcp server , send something and expect something,and 
+restarts server on stale status .
 local_domain_generator : get list of local domains out of httpd.conf , suitable 
 for mailservers .
 uptimer : using "send expect" mechanism to detect service failure on localhost , 
@@ -28,6 +29,8 @@ replace_argument_with_blank_line : replaces string with blank line , suiteable f
 removing passwords .
 powersave : saves power , enable hdd laptop mode and etc on platforms that 
 does support it features .
+open_base_dir_added :this script does look for DocumentRoot directive in 
+virtualhosts and add php_admin_value open_basedir retrication
 
 
 

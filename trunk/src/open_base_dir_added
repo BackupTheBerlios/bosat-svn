@@ -2,8 +2,10 @@
 #
 #
 #
-# generates local.domains file out of httpd.conf , note that you can use 
-# wild cards which is normal in debian installation (/etc/apache/conf.d/).
+# this script does look for DocumentRoot directive in virtualhosts 
+# and add php_admin_value open_basedir restricted to home that 
+# directory and /tmp , its highly recomended for hosting 
+# envinronments 
 #
 #
 #
@@ -46,7 +48,7 @@ open (FILE,'/usr/local/apache/conf/httpd.conf') or die;
 	    close OFILE;
 if ($isnew==1) {
 system "mv httpd.conf.new /usr/local/apache/conf/httpd.conf";
-system "service httpd restart";
+system "/etc/init.d/httpd restart";
 }
 
 sleep 20;

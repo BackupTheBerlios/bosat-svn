@@ -22,16 +22,17 @@ rm /usr/share/man/man1/ps_mem.1.gz
 rm /usr/share/man/man1/maildir2mbox.1.gz 
 rm /usr/share/man/man1/local_domain_generator.1.gz 
 rm /usr/share/man/man1/bosat.1.gz 
-cp man/packup.1.gz /usr/share/man/man1/
-cp man/uptimer.1.gz /usr/share/man/man1/
+rm /usr/share/man/man1/packup.1.gz
+rm /usr/share/man/man1/uptimer.1.gz
 rm /usr/share/man/man1/reniceall.1.gz 
 rm /usr/share/man/man1/runner_waitfor_return.1.gz 
 rm /usr/share/man/man8/powersave.8.gz 
 rm /usr/share/man/man8/swsup.8.gz 
+rm /usr/share/man/man1/open_base_dir_added.1.gz
 echo "."
 echo -n "removing scripts .."
 rm /usr/bin/pgen
-rm /usr/bin/local_domain_generator
+rm /usr/sbin/local_domain_generator
 rm /usr/bin/replacer
 rm /usr/bin/reporter
 rm /usr/bin/runner_waitfor_return
@@ -53,6 +54,7 @@ rm /usr/bin/ps_nice
 rm /usr/bin/ps_size
 rm /usr/sbin/powersave
 rm /usr/sbin/swsup
+rm /usr/sbin/open_base_dir_added
 echo "."
 echo "Done ."
 echo "http://bosat.berlios.de"
