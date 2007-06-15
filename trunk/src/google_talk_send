@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+use Net::XMPP;
+
+my $username = shift @ARGV;
+my $password = shift @ARGV;
+my $to = shift @ARGV;
+my $body = join (' ' , @ARGV);
+my $resource = "YongBot";
+
+my $hostname = 'talk.google.com';
+my $port = 5222;
+my $componentname = 'gmail.com';
+my $connectiontype = 'tcpip';
+my $tls = 1;
+
+my $Connection = new Net::XMPP::Client();
+
+my $status = $Connection->Connect(
+       hostname => $hostname, port => $port,
+       componentname => $componentname,
+       connectiontype => $connectiontype, tls => $tls);
+
+if (!(defined($status))) {
+   print "ERROR:  XMPP connection failed.\n";
+   print "        ($!)\n";
+   exit(0);
+}
+
+my $sid = $Connection->{SESSION}->{id};
+$Connection->{STREAM}->{SIDS}->{$sid}->{hostname} = $componentname;
+
+my @result = $Connection->AuthSend(
+       username => $username, password => $password,
+       resource => $resource);
+
+if ($result[0] ne "ok") {
+   print "ERROR: Authorization failed: $result[0] - $result[1]\n";
+   exit(0);
+}
+
+$Connection->MessageSend(
+       to => "$to\@$componentname", body => $body,
+       resource => $resource);
