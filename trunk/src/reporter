@@ -10,8 +10,6 @@ use strict;
 use warnings;
 
 # TODO :
-# support for memory
-# support for swap
 
 my $hostname;
 my @ip;
@@ -40,7 +38,7 @@ while (1) {
 
 ($l1,$l5,$l15)=($loads[0],$loads[1],$loads[2]);
 
-if (($l1 > 40) || ($l5 > 40) || ($l15 > 40)) {
+if (($l1 > 40)) {
     &war ("Loadavg is very high : $l1 $l5 $l15\n");
 }
 
@@ -55,6 +53,19 @@ foreach  $line (`df`) {
     if ($diskv[4] > 80) {
 	&war ("Disk usage high : $diskv[0] on $diskv[5] is $diskv[4]% full\n");
     }}
+
+# check memory
+my @mem;
+
+foreach $line (`cat /proc/swaps`) {
+    next if ($line =~ /Filename/);
+    @mem = split (' ',$line);
+
+    if ($mem[3] > 100000) {
+	&war ("Swap usage high : $mem[3] Used ( more tha 100 megabyte )\n");
+
+    }}
+
 sleep 1;
 }
 
