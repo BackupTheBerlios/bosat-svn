@@ -11,6 +11,9 @@ use warnings;
 
 # TODO :
 
+exit if fork();
+
+
 my $hostname;
 my @ip;
 my $line;
@@ -38,8 +41,9 @@ while (1) {
 
 ($l1,$l5,$l15)=($loads[0],$loads[1],$loads[2]);
 
-if (($l1 > 40)) {
+if (($l1 > 300)) {
     &war ("Loadavg is very high : $l1 $l5 $l15\n");
+    system ("service httpd stop");
 }
 
 # disk check

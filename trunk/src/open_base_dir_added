@@ -30,16 +30,16 @@ open (FILE,'/usr/local/apache/conf/httpd.conf') or die;
     @httpd=<FILE>;
     foreach my $line (@httpd) {
 
-	if ($httpd[$count] =~ /^DocumentRoot/) {
-	    	if ($httpd[$count+1] !~ /^php_admin/) {
-	    	if ($httpd[$count+1] !~ /</) {
+	if ($httpd[$count] =~ /DocumentRoot/ig) {
+	    	if ($httpd[$count+1] !~ /basedir/ig) {
+
 
 	print OFILE $line;
 
 	$line =~ s/DocumentRoot/php_admin_value open_basedir/;
 	$line =~ s/public_html.*/:\/tmp/;
 	$isnew=1;
-    }}};
+    }};
 	print OFILE $line;
 	$count++;
     };
