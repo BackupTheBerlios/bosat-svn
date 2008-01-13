@@ -1,0 +1,2 @@
+#!/bin/bash
+du -ckh * | sort -rn | head -11
