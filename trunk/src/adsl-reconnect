@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+
+
+while (1) {
+$file = system 'ls /var/run/ppp?.pid';
+
+if ($file) {
+    print "file does not exists";
+    system "killall -w pppd";
+    system "pon dsl-provider";
+}
+
+sleep 5;
+}
