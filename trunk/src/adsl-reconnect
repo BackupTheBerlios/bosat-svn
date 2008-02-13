@@ -1,5 +1,12 @@
 #!/usr/bin/perl
+#
+# reconnect adsl if its fscked
+#
+#
 
+die "adsl-reconnect [checking interval]\n" unless $ARGV[0];
+
+exit if fork();
 
 
 while (1) {
@@ -11,5 +18,5 @@ if ($file) {
     system "pon dsl-provider";
 }
 
-sleep 5;
+sleep $ARGV[0];
 }
